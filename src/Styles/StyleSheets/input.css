@@ -25,3 +25,11 @@
     @apply cursor-pointer transition-transform transform hover:-translate-y-1 hover:shadow-lg;
 }
 
+.dark-mode {
+    @apply bg-gray-800
+}
+
+.dark-mode-light {
+    @apply bg-gray-700
+}
+
