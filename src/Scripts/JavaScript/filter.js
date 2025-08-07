@@ -1,54 +1,36 @@
 // Sort/filter into todo/done/doing-column using the status of the task
-const initialTasks = [
-  {
-    id: 1,
-    title: "Launch Epic Career 🚀",
-    description: "Create a killer Resume",
-    status: "todo",
-  },
-  {
-    id: 2,
-    title: "Master JavaScript 💛",
-    description: "Get comfortable with the fundamentals",
-    status: "doing",
-  },
-  {
-    id: 3,
-    title: "Keep on Going 🏆",
-    description: "You're almost there",
-    status: "doing",
-  },
+// Get initial data from external API
+// Async function with try catch validation
+async function fetchInitialTasks () {
+  try {
+    // Placeholder alert for loading
+    alert('Data is loading, please be patient');
+    const responseData = await fetch ('https://jsl-kanban-api.vercel.app/');
+    // Check is the response was successful
+    if (!responseData.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    // Parse the reponse/promise into json
+    const initialTasks = await responseData.json();
+    console.log('Data recieved', initialTasks);
 
-  {
-    id: 11,
-    title: "Learn Data Structures and Algorithms 📚",
-    description:
-      "Study fundamental data structures and algorithms to solve coding problems efficiently",
-    status: "todo",
-  },
-  {
-    id: 12,
-    title: "Contribute to Open Source Projects 🌐",
-    description:
-      "Gain practical experience and collaborate with others in the software development community",
-    status: "done",
-  },
-  {
-    id: 13,
-    title: "Build Portfolio Projects 🛠️",
-    description:
-      "Create a portfolio showcasing your skills and projects to potential employers",
-    status: "done",
-  },
-];
+    // Save the initial data to local storage
+    // Check if any data with the key 'tasks' exists and save the initial tasks to local storage
+    if (!localStorage.getItem('tasks')) {
+      localStorage.setItem('tasks', JSON.stringify(initialTasks));
+      console.log('Tasks saved');
+    } else {
+      console.log('Tasks already exists in the local storage');
+    }
 
-// Check if any data with the key 'users' exists and save the initial tasks to local storage
-if (!localStorage.getItem('tasks')) {
-  localStorage.setItem('tasks', JSON.stringify(initialTasks));
-  console.log('Tasks saved');
-} else {
-  console.log('Tasks already exists in the local storage');
-}
+  } catch (error) { 
+    console.error('The data was not successfully parsed', error);
+    // Add error handling here
+  }
+};
+
+fetchInitialTasks();
+
 /**
  * Filters tasks stored in localStorage into separate arrays based on their status.
  * @function filterTasks
