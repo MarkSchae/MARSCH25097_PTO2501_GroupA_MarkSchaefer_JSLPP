@@ -18,7 +18,7 @@
     
     <!-- Header section with the kanban svg -->
     <!-- Mobile first -->
-    <header class="hidden sm:block sm:bg-white pt-8 border border-[#E4EBFA]">
+    <header id="side-bar-div" class="hidden sm:block sm:bg-white pt-8 border border-[#E4EBFA]">
         <img src="/images/logo-light.svg" class="hidden w-[375px] h-16 sm:w-[169px] sm:h-[30px] sm:pl-8 sm:mb-12" alt="Kanban Logo">
         <!-- Hide these elements for the mobile screen size -->
         <div class="hidden sm:block text-[#828FA3] text-[12px] pl-8 mb-4">All boards (1)</div>
@@ -29,10 +29,9 @@
             <button id="side-bar-toggle">Hide Side Bar</button>
             <button id="light-dark-mode-toggle">Light/Dark Mode</button>
         </div>
-
     </header>
 
-    <main class="grid grid-cols-1 gap-4 sm:grid-cols-3 sm:grid-rows-[97px_1fr]">
+    <main id="main-tasks-grid" class="grid grid-cols-1 gap-4 sm:grid-cols-3 sm:grid-rows-[97px_1fr]">
 
         <!-- Elements for the add task modal view of the tasks -->
         <div id="add-task-modal" class="hidden fixed z-50 top-[24vh] left-1/2 transform -translate-x-1/2">
