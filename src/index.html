@@ -18,14 +18,14 @@
     
     <!-- Header section with the kanban svg -->
     <!-- Mobile first -->
-    <header id="side-bar-div" class="hidden sm:block sm:bg-white pt-8 border border-[#E4EBFA]">
-        <img src="/images/logo-light.svg" class="hidden w-[375px] h-16 sm:w-[169px] sm:h-[30px] sm:pl-8 sm:mb-12" alt="Kanban Logo">
+    <header id="side-bar-div" class="hidden sm:flex flex-col sm:bg-white pt-8 border border-[#E4EBFA] h-full">
+        <img id="kanban-logo-img" src="/images/logo-light.svg" class="hidden w-[375px] h-16 sm:block sm:w-[169px] sm:h-[30px] sm:pl-8 sm:mb-12" alt="Kanban Logo">
         <!-- Hide these elements for the mobile screen size -->
         <div class="hidden sm:block text-[#828FA3] text-[12px] pl-8 mb-4">All boards (1)</div>
         <div class="hidden sm:block text-white rounded-tr-[100px] rounded-br-[100px] bg-[#635FC7] pl-8 w-[276px] h-[48px] leading-[48px]">
             Launch Career
         </div>
-        <div class="flex flex-col">
+        <div class="flex flex-col mt-auto fixed bottom-0 left-0">
             <button id="side-bar-toggle">Hide Side Bar</button>
             <button id="light-dark-mode-toggle">Light/Dark Mode</button>
         </div>
@@ -83,7 +83,7 @@
         
          <!-- Heading for the desktop screen, span the entire first row -->
          <!-- Hide these elements for the mobile screen size -->
-        <div class="hidden sm:flex justify-between col-span-full bg-white text-2xl items-center pl-5 font-bold border border-[#E4EBFA]">
+        <div id="top-heading" class="hidden sm:flex justify-between col-span-full bg-white text-2xl items-center pl-5 font-bold border border-[#E4EBFA]">
             LAUNCH CAREER
             <button id="btn-add-task" class="hidden bg-[#635FC7] text-white hover:bg-[#5a54c5] transition mt-4 rounded-3xl px-4 py-6 w-40 h-12 text-[15px] sm:flex justify-center items-center mr-16">
                 +Add Task

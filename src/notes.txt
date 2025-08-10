@@ -50,3 +50,20 @@ Need to implement checks for the following and more in the user inputs:
     Duplicate task titles
     Special characters
     Forbidden words
+
+Stretch goals
+    Sort by priority but also by fastest to complete/least amount of time and energy to complete
+    I want to add the drag and drop as a stretch goal.
+    Maybe add some plotly visuals for certian key areas such as on average how long does a task take to move from todo - doing - todo 
+    Maybe add links to the tasks so you can affectivley get to any task immediatley from one place, as you click the link it moves to doing column 
+    Track how many times a user clicks on a task and how long the user is working on it (mouse clicks maybe)
+    Add the ability to send a alert/alarm to the user so they are reminded to work on certian tasks 
+    I would personally benefit more from a app that just remind me to do things vs just tracks the items
+
+A different method for targeting elements, keep in mind for future when class names are being used in multiple places manually
+// Card elements/tasks dark mode
+    // Select all columns
+    //const columns = document.querySelectorAll('#todo-column, #doing-column, #done-column');
+    // Loop through each column and toggle the dark mode on each child/card element of each column
+    //columns.forEach(column => 
+        //column.querySelectorAll(':scope > :not(:first-child), :scope *').forEach(childElement => childElement.classList.toggle('dark-mode-light'))); // Might be easier to just give each created div a classname)
