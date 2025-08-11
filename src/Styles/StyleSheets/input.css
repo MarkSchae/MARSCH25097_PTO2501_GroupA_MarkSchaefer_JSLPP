@@ -9,7 +9,7 @@
 }
 
 .detailed-card-styling {
-    @apply flex flex-col gap-1.5 bg-white p-4 rounded shadow w-[90vw] max-w-lg;
+    @apply flex flex-col gap-1.5 p-4 rounded shadow w-[90vw] max-w-lg text-black;
     box-shadow: 0px 4px 6px 0px #364E7E1A;
 }
 
@@ -18,11 +18,15 @@
 }
 
 .input-border {
-    @apply border border-[#828FA340]; 
+    @apply border border-[#828FA340] rounded-[4px] pt-2 pr-4 pl-4 wrap-break-word pb-2; 
 }
 
 .click-hover {
     @apply cursor-pointer transition-transform transform hover:-translate-y-1 hover:shadow-lg;
+}
+
+.button-default {
+    @apply cursor-pointer bg-[#635FC7] rounded-4xl text-white h-10;
 }
 
 .dark-mode,
@@ -36,3 +40,10 @@
     @apply bg-gray-700
 }
 
+.dark-mode-switch {
+  @apply relative w-[40px] h-[20px] rounded-full cursor-pointer;
+}
+
+.dark-mode-switch-nested  {
+  @apply absolute top-[2px] w-[14px] h-[14px] rounded-full bg-white;
+}

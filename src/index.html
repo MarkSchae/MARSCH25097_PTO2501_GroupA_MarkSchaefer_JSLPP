@@ -25,9 +25,15 @@
         <div class="hidden sm:block text-white rounded-tr-[100px] rounded-br-[100px] bg-[#635FC7] pl-8 w-[276px] h-[48px] leading-[48px]">
             Launch Career
         </div>
-        <div class="flex flex-col mt-auto fixed bottom-0 left-0">
-            <button id="side-bar-toggle">Hide Side Bar</button>
-            <button id="light-dark-mode-toggle">Light/Dark Mode</button>
+        <div class="flex flex-col gap-4 mt-auto fixed bottom-4 left-0">
+            <button id="side-bar-toggle" class="w-72 h-12 bg-[#F4F7FD] rounded-br-[100px] rounded-tr-[100px] text-[#635FC7] cursor-pointer">🚫 Hide Side Bar</button>
+            <button id="light-dark-mode-toggle" class="flex justify-center items-center w-64 h-12 bg-[#F4F7FD] rounded-[6px]">
+                ☀️  
+                <div id="dark-mode-switch-container" class="dark-mode-switch bg-[#635FC7]">
+                    <div id="dark-mode-switch-movement" class="dark-mode-switch-nested left-0.5"></div> 
+                </div>
+                🌑
+            </button>
         </div>
     </header>
 
@@ -41,11 +47,11 @@
             </div>
             <div class="flex flex-col gap-6">
                 <label class="label-color" for="add-title">Title</label>
-                <input class="input-border" id="add-title" type="text" placeholder="New Task Title" required>
+                <input class="input-border" id="add-title" placeholder="New Task Title" required>
             </div>
             <div class="flex flex-col gap-6">
                 <label class="label-color" for="add-description">Description</label>
-                <input class="input-border h-[112px]" id="add-description" type="text" placeholder="New Task Description" required>
+                <textarea class="input-border" id="add-title" placeholder="New Task Title" required></textarea>
             </div>
             <div class="flex flex-col gap-6">
                 <label class="label-color" for="add-task-status">Status</label>
@@ -58,22 +64,22 @@
         </div>
 
         <!-- Elements for the detailed view of the tasks -->
-        <div id="detailed-task-card" class="hidden fixed z-50 top-[24vh] left-1/2 transform -translate-x-1/2">
+        <div id="detailed-task-card" class="hidden fixed z-50 top-[24vh] left-1/2 transform -translate-x-1/2 bg-white">
             <div class="flex justify-between">
                 <h6>Task</h6>
                 <img class="exit-btn w-3.5 h-3.5" id="edit-task-exit-button" src="/images/exit.png" alt="Red Exit Button">
             </div>
             <div class="flex flex-col gap-6">
                 <label class="label-color" for="edit-title">Title</label>
-                <input class="input-border" id="edit-title" type="text">
+                <input class="input-border bg-white" id="edit-title" type="text">
             </div>
             <div class="flex flex-col gap-6">
                 <label class="label-color" for="edit-description">Description</label>
-                <input class="input-border h-[112px]" id="edit-description" type="text">
+                <textarea class="input-border h-[112px] bg-white" id="edit-description" placeholder="Edit Description"></textarea>
             </div>
             <div class="flex flex-col gap-6">
                 <label class="label-color" for="edit-task-status">Status</label>
-                <select class="input-border" name="edit-task-status" id="edit-task-status">
+                <select class="input-border bg-white" name="edit-task-status" id="edit-task-status">
                     <option value="todo">Todo</option>
                     <option value="done">Done</option>
                     <option value="doing">Doing</option>

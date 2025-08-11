@@ -16,7 +16,7 @@ function detailedTasksView (task, taskDiv) {
   const button = document.createElement('button');
   button.id = 'btn-save-changes';
   button.innerHTML = 'Save Changes';
-  button.className = 'click-hover';
+  button.className = 'click-hover button-default';
   button.addEventListener('click', () => saveChanges(task, taskDiv));
   const detailedTaskCard = document.getElementById('detailed-task-card');
   detailedTaskCard.appendChild(button);
