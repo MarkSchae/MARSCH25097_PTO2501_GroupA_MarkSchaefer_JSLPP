@@ -17,7 +17,7 @@ function addTaskModal () {
   const button = document.createElement('button');
   button.id = 'btn-save-new-task';
   button.innerHTML = 'Save Task';
-  button.className = 'click-hover';
+  button.className = 'click-hover button-default';
   button.addEventListener('click', () => saveNewTask());
   const taskModal = document.getElementById('add-task-modal');
   taskModal.appendChild(button);

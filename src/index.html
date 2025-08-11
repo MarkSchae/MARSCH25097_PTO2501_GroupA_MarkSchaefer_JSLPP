@@ -25,12 +25,12 @@
         <div class="hidden sm:block text-white rounded-tr-[100px] rounded-br-[100px] bg-[#635FC7] pl-8 w-[276px] h-[48px] leading-[48px]">
             Launch Career
         </div>
-        <div class="flex flex-col gap-4 mt-auto fixed bottom-4 left-0">
+        <div class="hidden sm:flex flex-col gap-4 mt-auto fixed bottom-4 left-0">
             <button id="side-bar-toggle" class="w-72 h-12 bg-[#F4F7FD] rounded-br-[100px] rounded-tr-[100px] text-[#635FC7] cursor-pointer">🚫 Hide Side Bar</button>
             <button id="light-dark-mode-toggle" class="flex justify-center items-center w-64 h-12 bg-[#F4F7FD] rounded-[6px]">
                 ☀️  
-                <div id="dark-mode-switch-container" class="dark-mode-switch bg-[#635FC7]">
-                    <div id="dark-mode-switch-movement" class="dark-mode-switch-nested left-0.5"></div> 
+                <div id="dark-mode-switch-container" class="dark-mode-switch bg-[#635FC7] hidden">
+                    <div id="dark-mode-switch-movement" class="dark-mode-switch-nested left-0.5 hidden"></div> 
                 </div>
                 🌑
             </button>
@@ -40,22 +40,22 @@
     <main id="main-tasks-grid" class="grid grid-cols-1 gap-4 sm:grid-cols-3 sm:grid-rows-[97px_1fr]">
 
         <!-- Elements for the add task modal view of the tasks -->
-        <div id="add-task-modal" class="hidden fixed z-50 top-[24vh] left-1/2 transform -translate-x-1/2">
+        <div id="add-task-modal" class="hidden fixed z-50 top-[24vh] left-1/2 transform -translate-x-1/2 bg-white">
             <div class="flex justify-between">
                 <h6>Add New Task</h6>
                 <img class="exit-btn w-3.5 h-3.5" id="new-task-exit-button" src="/images/exit.png" alt="Red Exit Button">
             </div>
             <div class="flex flex-col gap-6">
                 <label class="label-color" for="add-title">Title</label>
-                <input class="input-border" id="add-title" placeholder="New Task Title" required>
+                <input class="input-border bg-white" id="add-title" placeholder="New Task Title" required>
             </div>
             <div class="flex flex-col gap-6">
                 <label class="label-color" for="add-description">Description</label>
-                <textarea class="input-border" id="add-title" placeholder="New Task Title" required></textarea>
+                <textarea class="input-border bg-white" id="add-description" placeholder="New Task Title" required></textarea>
             </div>
             <div class="flex flex-col gap-6">
                 <label class="label-color" for="add-task-status">Status</label>
-                <select class="input-border" name="add-task-status" id="add-task-status">
+                <select class="input-border bg-white" name="add-task-status" id="add-task-status">
                     <option value="todo">ToDo</option>
                     <option value="done">Done</option>
                     <option value="doing">Doing</option>
@@ -91,13 +91,13 @@
          <!-- Hide these elements for the mobile screen size -->
         <div id="top-heading" class="hidden sm:flex justify-between col-span-full bg-white text-2xl items-center pl-5 font-bold border border-[#E4EBFA]">
             LAUNCH CAREER
-            <button id="btn-add-task" class="hidden bg-[#635FC7] text-white hover:bg-[#5a54c5] transition mt-4 rounded-3xl px-4 py-6 w-40 h-12 text-[15px] sm:flex justify-center items-center mr-16">
+            <button id="btn-add-task" class="hidden bg-[#635FC7] text-white hover:bg-[#5a54c5] transition mt-4 rounded-3xl px-4 py-6 w-40 h-12 text-[15px] sm:flex justify-center items-center mr-16 cursor-pointer">
                 +Add Task
             </button>
         </div>
         <!-- Code to hide this element on sm and flex on mobile -->
         <div class="flex sm:hidden justify-between col-span-full bg-white text-2xl items-center pl-5 font-bold border border-[#E4EBFA] h-16">
-            <img class="w-6 h-6"  src="/images/fav.svg" alt="">
+            <img id="mobile-logo" class="w-6 h-6"  src="/images/fav.svg" alt="">
             <button id="btn-add-task" class="bg-[#635FC7] text-white hover:bg-[#5a54c5] transition rounded-3xl p-1 w-8 h-8 text-[15px] flex justify-center items-center mr-4">
                 +
             </button>

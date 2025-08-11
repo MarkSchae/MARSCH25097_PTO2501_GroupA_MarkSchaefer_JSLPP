@@ -38,10 +38,13 @@ lightDarkToggleBtn.addEventListener('click', () => {
     }
     // Toggle the elements in the detailed card view
     const detailedTaskCard = document.getElementById('detailed-task-card');
+    const addTaskCard = document.getElementById('add-task-modal'); // Can do this with a class name and for each in future
     //const taskHeading = document.getElementsByTagName('h6');
     //taskHeading.classList.toggle('');
     detailedTaskCard.classList.toggle('bg-white');
+    addTaskCard.classList.toggle('bg-white');
     detailedTaskCard.classList.toggle('bg-[#2B2C37]');
+    addTaskCard.classList.toggle('bg-[#2B2C37]');
     // Toggle the backdrop
     const backdrop = document.getElementById('backdrop');
     backdrop.classList.toggle('bg-black/50');
@@ -66,6 +69,15 @@ sidebarToggleBtn.addEventListener('click', () => {
         newSideBarToggleBtn.classList = 'hidden';
     });
     mainGridTasks.append(newSideBarToggleBtn);
+});
+
+// Testing the sidebar on mobile
+const logo = document.getElementById('mobile-logo');
+logo.addEventListener('click', () => {
+    const sideBar = document.getElementById('side-bar-div');
+    sideBar.classList.toggle('hidden');
+    const sideBarDivs = sideBar.querySelectorAll('div');
+    sideBarDivs.forEach(div => div.classList.toggle('hidden'));
 });
 
 
