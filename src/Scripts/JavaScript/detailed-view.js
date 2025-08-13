@@ -1,4 +1,5 @@
 import { saveChanges } from './save-edits.js';
+import { deleteTask } from './delete-task.js';
 
 /**
  * Functionality to open the detailed task view 
@@ -19,6 +20,13 @@ function detailedTasksView (task, taskDiv) {
   button.className = 'click-hover button-default';
   button.addEventListener('click', () => saveChanges(task, taskDiv));
   const detailedTaskCard = document.getElementById('detailed-task-card');
+  // Delete/remove task
+  const deleteBtn = document.createElement('button');
+  deleteBtn.id = 'delete-task-btn';
+  deleteBtn.innerHTML = 'Delete Task';
+  deleteBtn.className = 'click-hover button-default';
+  deleteBtn.addEventListener('click', () => deleteTask(task));
+  detailedTaskCard.appendChild(deleteBtn);
   detailedTaskCard.appendChild(button);
   const overlay = document.getElementById('backdrop');
   if (detailedTaskCard.classList.contains('hidden')) {

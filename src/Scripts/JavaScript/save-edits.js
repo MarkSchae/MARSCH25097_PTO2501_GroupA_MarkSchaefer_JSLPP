@@ -27,13 +27,13 @@ function saveChanges (task, taskDiv) {
   const updatedTaskId = task.id;
   const tasksData = localStorage.getItem('tasks');
   const tasks = JSON.parse(tasksData);
-  
+
   // Save the new task into the locally stord 'tasks' array
   // Find the index of the task you want to update
   const index = tasks.findIndex(tsk => tsk.id === updatedTaskId);
 
-  if (index !== -1) {
-    tasks[index] = task; // Replace the task at that index
+  if (index !== -1) { // If an index is not found it means that there is an error or the id does not exist in the array
+    tasks[index] = task; // Replace the task at that index with the updated task
   } else {
     console.log("Task not found, maybe add instead?");
   }

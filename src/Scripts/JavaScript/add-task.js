@@ -48,7 +48,7 @@ function checkInputs() { // Add checks to the inputs for incorrect status inputs
   ];
 
   for (const input of inputs) {
-    if (!input.checkValidity()) {
+    if (!input.checkValidity()) { // Checks if the inputs adhere to the rules set out in the html like 'required'
       input.reportValidity();
       input.focus();
       return false; // False if invalid
