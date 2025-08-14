@@ -1,6 +1,6 @@
-import { filterTasks } from "./filter";
-import { renderTasks } from "./tasks";
-import { exitTasksView } from "./detailed-view";
+import { filterTasks } from "./filter.js";
+import { renderTasks } from "./tasks.js";
+import { exitTasksView } from "./detailed-view.js";
 // Testing deletion of tasks
 // Get the task that the user is clicking to delete
 

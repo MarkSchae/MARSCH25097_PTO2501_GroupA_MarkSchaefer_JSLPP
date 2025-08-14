@@ -44,7 +44,8 @@ function checkInputs() { // Add checks to the inputs for incorrect status inputs
   const inputs = [
     document.getElementById('add-title'),
     document.getElementById('add-description'),
-    document.getElementById('add-task-status')
+    document.getElementById('add-task-status'),
+    document.getElementById('add-task-priority')
   ];
 
   for (const input of inputs) {
@@ -82,6 +83,7 @@ function saveNewTask () {
   newTask.title = document.getElementById('add-title').value;
   newTask.description = document.getElementById('add-description').value;
   newTask.status = document.getElementById('add-task-status').value;
+  newTask.priority = document.getElementById('add-task-priority').value;
   // For the ID, find the highest value that aleady exists and add one for the new ID
   // Get the currently saved tasks and create a new array just of the ID values
   const tasksData = localStorage.getItem('tasks');

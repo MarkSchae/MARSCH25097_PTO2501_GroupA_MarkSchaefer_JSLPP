@@ -10,8 +10,12 @@ import { deleteTask } from './delete-task.js';
 function detailedTasksView (task, taskDiv) {
   // Delete existing button elements
   const existingButton = document.getElementById('btn-save-changes');
-  if(existingButton) {
+  if (existingButton) {
     existingButton.remove();
+  }
+  const oldDeleteBtn = document.getElementById('delete-task-btn');
+  if (oldDeleteBtn) {
+    oldDeleteBtn.remove();
   }
   // Save changes/edits button
   const button = document.createElement('button');
@@ -36,6 +40,7 @@ function detailedTasksView (task, taskDiv) {
     document.getElementById('edit-title').value = task.title;
     document.getElementById('edit-description').value = task.description;
     document.getElementById('edit-task-status').value = task.status;
+    document.getElementById('edit-task-priority').value = task.priority;
   }
 };
 

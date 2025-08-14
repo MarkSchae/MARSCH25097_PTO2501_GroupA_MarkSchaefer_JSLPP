@@ -61,10 +61,18 @@
                     <option value="doing">Doing</option>
                 </select>
             </div>
+            <div class="flex flex-col gap-6">
+                <label class="label-color" for="add-task-priority">Priority</label>
+                <select class="input-border bg-white" name="add-task-priority" id="add-task-priority">
+                    <option value="high">High</option>
+                    <option value="medium">Medium</option>
+                    <option value="low">Low</option>
+                </select>
+            </div>
         </div>
 
         <!-- Elements for the detailed view of the tasks -->
-        <div id="detailed-task-card" class="hidden fixed z-50 top-[24vh] left-1/2 transform -translate-x-1/2 bg-white">
+        <div id="detailed-task-card" class="hidden fixed z-50 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white">
             <div class="flex justify-between">
                 <h6>Task</h6>
                 <img class="exit-btn w-3.5 h-3.5" id="edit-task-exit-button" src="/images/exit.png" alt="Red Exit Button">
@@ -83,6 +91,14 @@
                     <option value="todo">Todo</option>
                     <option value="done">Done</option>
                     <option value="doing">Doing</option>
+                </select>
+            </div>
+            <div class="flex flex-col gap-6">
+                <label class="label-color" for="edit-task-priority">Priority</label>
+                <select class="input-border bg-white" name="edit-task-priority" id="edit-task-priority">
+                    <option value="high">High</option>
+                    <option value="medium">Medium</option>
+                    <option value="low">Low</option>
                 </select>
             </div>
         </div>

@@ -15,6 +15,7 @@ function saveChanges (task, taskDiv) {
   task.title = document.getElementById('edit-title').value;
   task.description = document.getElementById('edit-description').value;
   task.status = document.getElementById('edit-task-status').value;
+  task.priority = document.getElementById('edit-task-priority').value;
   taskDiv.innerHTML = task.title;
   if (task.status.toLowerCase() === 'todo') {
     toDoColumn.appendChild(taskDiv);
@@ -24,6 +25,7 @@ function saveChanges (task, taskDiv) {
     doingColumn.appendChild(taskDiv);
   }
 
+  // Get the parsed tasks unique id in order to 'replace' the old task at the same index with the new task
   const updatedTaskId = task.id;
   const tasksData = localStorage.getItem('tasks');
   const tasks = JSON.parse(tasksData);
