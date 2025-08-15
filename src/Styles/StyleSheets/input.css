@@ -49,5 +49,5 @@
 }
 
 .priority-indicator {
-    @apply w-[15px] h-[15px] rounded-full;
+    @apply w-[15px] h-[15px] rounded-full shadow-xl;
 }

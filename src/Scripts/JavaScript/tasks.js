@@ -21,11 +21,11 @@ function renderTasks () {
     newToDoTask.className = 'tasks-divs card-styling click-hover';
     priorityOfTask.className = 'priority-indicator';
     if (toDoTasks[i].priority === 'high') {
-      priorityOfTask.classList.add('bg-red-900');
+      priorityOfTask.classList.add('bg-red-500');
     } else if (toDoTasks[i].priority === 'medium') {
-      priorityOfTask.classList.add('bg-yellow-900');
+      priorityOfTask.classList.add('bg-yellow-500');
     } else if (toDoTasks[i].priority === 'low') {
-      priorityOfTask.classList.add('bg-green-900');
+      priorityOfTask.classList.add('bg-green-500');
     }
     newToDoTask.appendChild(priorityOfTask);
     newToDoTask.innerText = toDoTasks[i].title;
@@ -41,11 +41,11 @@ function renderTasks () {
     doneTask.className = 'tasks-divs card-styling click-hover';
     priorityOfTask.className = 'priority-indicator';
     if (doneTasks[i].priority === 'high') {
-      priorityOfTask.classList.add('bg-red-900');
+      priorityOfTask.classList.add('bg-red-500');
     } else if (doneTasks[i].priority === 'medium') {
-      priorityOfTask.classList.add('bg-yellow-900');
+      priorityOfTask.classList.add('bg-yellow-500');
     } else if (doneTasks[i].priority === 'low') {
-      priorityOfTask.classList.add('bg-green-900');
+      priorityOfTask.classList.add('bg-green-500');
     }
     doneTask.appendChild(priorityOfTask);
     doneTask.innerHTML = doneTasks[i].title;
@@ -62,11 +62,11 @@ function renderTasks () {
     doingTask.innerHTML = doingTasks[i].title;
     priorityOfTask.className = 'priority-indicator';
     if (doingTasks[i].priority === 'high') {
-      priorityOfTask.classList.add('bg-red-900');
+      priorityOfTask.classList.add('bg-red-500');
     } else if (doingTasks[i].priority === 'medium') {
-      priorityOfTask.classList.add('bg-yellow-900');
+      priorityOfTask.classList.add('bg-yellow-500');
     } else if (doingTasks[i].priority === 'low') {
-      priorityOfTask.classList.add('bg-green-900');
+      priorityOfTask.classList.add('bg-green-500');
     }
     doingTask.appendChild(priorityOfTask);
     doingColumn.appendChild(doingTask);
