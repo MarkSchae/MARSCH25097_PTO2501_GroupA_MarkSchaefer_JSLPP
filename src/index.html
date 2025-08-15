@@ -25,12 +25,12 @@
         <div class="hidden sm:block text-white rounded-tr-[100px] rounded-br-[100px] bg-[#635FC7] pl-8 w-[276px] h-[48px] leading-[48px]">
             Launch Career
         </div>
-        <div class="hidden sm:flex flex-col gap-4 mt-auto fixed bottom-4 left-0">
-            <button id="side-bar-toggle" class="w-72 h-12 bg-[#F4F7FD] rounded-br-[100px] rounded-tr-[100px] text-[#635FC7] cursor-pointer">🚫 Hide Side Bar</button>
-            <button id="light-dark-mode-toggle" class="flex justify-center items-center w-64 h-12 bg-[#F4F7FD] rounded-[6px]">
+        <div id="toggle-div" class="hidden sm:flex z-50 flex-col gap-4 sm:mt-auto sm:fixed bottom-4 left-0">
+            <button id="side-bar-toggle" class="hidden sm:block w-72 h-12 bg-[#F4F7FD] rounded-br-[100px] rounded-tr-[100px] text-[#635FC7] cursor-pointer">🚫 Hide Side Bar</button>
+            <button id="light-dark-mode-toggle" class="flex z-50 justify-center items-center w-64 h-12 bg-[#F4F7FD] rounded-[6px]">
                 ☀️  
-                <div id="dark-mode-switch-container" class="dark-mode-switch bg-[#635FC7] hidden sm:block">
-                    <div id="dark-mode-switch-movement" class="dark-mode-switch-nested left-0.5 hidden sm:block"></div> 
+                <div id="dark-mode-switch-container" class="dark-mode-switch z-50  bg-[#635FC7] hidden sm:block">
+                    <div id="dark-mode-switch-movement" class="dark-mode-switch-nested z-50 left-0.5 hidden sm:block"></div> 
                 </div>
                 🌑
             </button>
@@ -112,7 +112,7 @@
             </button>
         </div>
         <!-- Code to hide this element on sm and flex on mobile -->
-        <div class="flex sm:hidden justify-between col-span-full bg-white text-2xl items-center pl-5 font-bold border border-[#E4EBFA] h-16">
+        <div id="mobile-logo-div" class="flex sm:hidden justify-between col-span-full bg-white text-2xl items-center pl-5 font-bold border border-[#E4EBFA] h-16">
             <img id="mobile-logo" class="w-6 h-6"  src="/images/fav.svg" alt="">
             <button id="btn-add-task" class="bg-[#635FC7] text-white hover:bg-[#5a54c5] transition rounded-3xl p-1 w-8 h-8 text-[15px] flex justify-center items-center mr-4">
                 +

@@ -492,9 +492,19 @@
       }
     }
   }
+  .sm\:fixed {
+    @media (width >= 40rem) {
+      position: fixed;
+    }
+  }
   .sm\:col-span-full {
     @media (width >= 40rem) {
       grid-column: 1 / -1;
+    }
+  }
+  .sm\:mt-auto {
+    @media (width >= 40rem) {
+      margin-top: auto;
     }
   }
   .sm\:mb-12 {

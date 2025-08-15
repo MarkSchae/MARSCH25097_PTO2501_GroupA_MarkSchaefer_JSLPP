@@ -1,4 +1,3 @@
-// Maybe split the code for the sidebar
 // Hide/Show the sidebar
 const sidebarToggleBtn = document.getElementById('side-bar-toggle');
 // Function to hide/show the sidebar element. Ensure that the layout adapts to keep its syling and take up the available space left by the hidden sidebar
@@ -19,11 +18,15 @@ sidebarToggleBtn.addEventListener('click', () => {
     mainGridTasks.append(newSideBarToggleBtn);
 });
 
-// Testing the sidebar on mobile
+// Sidebar on mobile
 const logo = document.getElementById('mobile-logo');
 logo.addEventListener('click', () => {
     const sideBar = document.getElementById('side-bar-div');
+    const overlay = document.getElementById('backdrop'); 
+    const mobileLogoDiv = document.getElementById('mobile-logo-div'); 
     sideBar.classList.toggle('hidden');
+    overlay.classList.toggle('hidden');
+    mobileLogoDiv.classList.toggle('z-50');
     const sideBarDivs = sideBar.querySelectorAll('div');
     sideBarDivs.forEach(div => div.classList.toggle('hidden'));
 });
