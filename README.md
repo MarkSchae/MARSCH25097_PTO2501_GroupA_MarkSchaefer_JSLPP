@@ -1,191 +1,175 @@
-# Readme for JSL-05
+# JSL-PP Kanban Board
 
-# KanBan Board
-
-A responsive Kanban board built with HTML and Tailwind CSS, designed to help users visualize tasks across various progress stages. The layout is responsive to desktop and mobile screen sizes and is styled to match the provided figma.
-
-## 📌 Board Structure
-
-The board includes three primary columns:
-
-To Do – Tasks that need to be started
-
-Doing – Tasks currently in progress
-
-Done – Completed tasks
-
-Each task is represented as a card and moves from left to right as it progresses.
-
-## 🎯 Project Purpose
-
-Visualize work clearly
-
-Improve task flow efficiency
-
-Foster collaboration and transparency
+A responsive Kanban board built with **HTML**, **Tailwind CSS**, and **JavaScript**, designed to help users visualize tasks across various progress stages. The layout is responsive for both desktop and mobile screens, styled to match a Figma design, and incorporates dynamic interactivity.
 
 ---
 
-## 🚀 Project Description
+## 📌 Board Structure
 
-This project mimics the layout and functionality of a basic Kanban board. A KanBan board is commonly used in project management tools like Trello or Jira. It is designed with a mobile-first approach and adapted for desktop using responsive CSS grid and utility classes from Tailwind. 
+The board contains **three primary columns**:
+
+- **To Do** – Tasks that need to be started  
+- **Doing** – Tasks currently in progress  
+- **Done** – Completed tasks  
+
+Each task is a card that moves across columns as its status changes.
+
+---
+
+## 🎯 Project Purpose
+
+- Clearly visualize tasks and workflow  
+- Improve task flow efficiency  
+- Foster collaboration and transparency  
 
 ---
 
 ## 🛠️ Technologies Used
 
-- HTML5
-- Tailwind CSS 
-- Google Fonts (Plus Jakarta Sans)
+- HTML5  
+- Tailwind CSS  
+- JavaScript  
+- Google Fonts (Plus Jakarta Sans)  
 
 ---
 
 ## 🚀 Features
 
-🧱 Responsive grid layout using Tailwind CSS
-
-📱 Mobile-first design
-
-➕ Add, edit, and persist tasks in localStorage
-
-📂 Tasks are dynamically sorted into columns (todo, doing, done)
-
-📝 Click-to-edit tasks with modal interface
-
-♻️ Updates reflected instantly in DOM and local storage
+- **Responsive grid layout** using Tailwind  
+- **Mobile-first design** with a collapsible sidebar  
+- **Add, edit, and delete tasks**, persisted in `localStorage`  
+- **Click-to-edit modal interface** for task details  
+- **Drag-and-drop** tasks across columns  
+- **Priority ordering** for high, medium, and low priority tasks  
+- **Light/Dark theme toggle**  
+- **Dynamic sorting and rendering** of tasks in the DOM  
 
 ---
 
 ## 🧱 Setup Instructions
 
-Clone this repository or download the project files, including index.html, input.css, output.css, and tailwind.config.js.
-
-### 📦 Prerequisites
-
-- [Node.js](https://nodejs.org/) and npm must be installed
-
-You can check with:
-
+1. Clone the repository or download the project files.  
+2. Ensure **Node.js** and **npm** are installed.  
+3. Install and compile Tailwind (if using local build):
 ```bash
-node -v
-npm -v
-Install node.js and Tailwind or use vanilla CSS. If you are using Tailwind, link the CDN or initialize a local version.
+npx tailwindcss -i ./src/Styles/StyleSheets/input.css -o ./src/Styles/StyleSheets/output.css --watch
+Open index.html in a browser using Live Server for live reloading.
 
-Open the folder in VS Code.
+You should see the Kanban board with responsive columns and interactive task cards.
 
-In the terminal (I use the Ubuntu terminal inside VS Code/your terminal of choice), make sure you're in the project directory:
+🚀 Deployment
+Hosted on Netlify for live demo access.
 
-cd into the folder directory or open the folder directly from VS Code
-Run Tailwind's build process to generate output.css:
-npx @tailwindcss/cli -i ./src/Styles/StyleSheets/input.css -o ./src/Styles/StyleSheets/output.css --watch
-This should watch for changes and automatically recompile Tailwind CSS. If the watch is not working then remove it and rebuild manually.
+GitHub repository connected to Netlify for automatic build and deployment on push.
 
-Use the Live Server extension in VS Code to view the HTML file.
+Live testing allowed for responsiveness, drag-and-drop, and theme toggle.
 
-You should now see the Kanban board layout with styled columns and cards. The layout will automatically adjust for desktop or mobile views.
-```
+🛠️ JavaScript Functionality
+1. Initial Data Fetching & Loading
+js
+Copy
+Edit
+async function fetchInitialTasks() {
+  try {
+    alert('Loading tasks...');
+    const response = await fetch('https://jsl-kanban-api.vercel.app/');
+    if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+    const initialTasks = await response.json();
+    if (!localStorage.getItem('tasks')) {
+      localStorage.setItem('tasks', JSON.stringify(initialTasks));
+    }
+  } catch (error) {
+    console.error('Failed to fetch tasks', error);
+  }
+}
+fetchInitialTasks();
+Fetches tasks from an external API and persists them in localStorage.
 
-## 🧪 Usage Examples
+try-catch handles errors; await ensures JSON parsing is complete before rendering.
 
-Once you have set up the project and opened `index.html` in a browser:
+2. Data Persistence
+Tasks are saved in localStorage as an array of objects.
 
-- You will see a three-column layout representing:
-  - **TODO**: Tasks that need to be started
-  - **DOING**: Tasks currently in progress
-  - **DONE**: Tasks that are completed
+All edits, deletions, and additions update both DOM and localStorage.
 
-- Each task is styled as a card and grouped under the corresponding column.
-
-### Example Visual Layout
-
-![Desktop Kanban](/images/JSL-01-Desktop.png)
-
-![Mobile Kanban](/images/JSL-01-Mobile.png)
-
-## 🛠️ JavaScript Functionality
-
-The JavaScript (`index.js`) in the KanBan Board prompts the user to input details for tasks.
-
-- **Title**  
-- **Description**  
-- **Status** (must be one of: `todo`, `doing`, or `done`)
-
-The JavaScript (index.js) file powers core interactive behaviors for the Kanban board, including adding, editing, and saving tasks, as well as moving them between columns based on status.
-
-Key Features:
-Users can add tasks via a prompt (or UI).
-
-Users can edit tasks and save changes, which updates local storage.
-
-Tasks are saved with uniqueId to ensure each task can be uniquely identified.
-
-Changes persist across page reloads using localStorage.
-
-Tasks are sorted into columns (todo, doing, done) automatically.
-
-### Key behaviors:
-- The user is prompted for input.
-- Input validations are checked.
-- The data is stored persistantley in local storage.
-- The main html page renders the pertenant information about the tasks from the stored data.
-
----
-
-### Example code snippet from `tasks.js`:
-
-```js
-// Create the html to add to the DOM for each column
-const toDoColumn = document.getElementById('todo-column');
-const doneColumn = document.getElementById('done-column');
-const doingColumn = document.getElementById('doing-column');
-
-function renderTasks () {
-  const { toDoTasks, doneTasks, doingTasks } = filterTasks();
+3. Task Rendering
+js
+Copy
+Edit
+function renderTasks() {
+  const { toDoTasks, doingTasks, doneTasks } = filterTasks();
   document.querySelectorAll('.tasks-divs').forEach(task => task.remove());
-  // Loop through each object in the new array and create the divs for each one
-  for(let i = 0; i < toDoTasks.length; i++) { // Could use a forEach method to make this cleaner
-    const newToDoTask = document.createElement('div');
-    // Add the function for the detailed view/edits/save changes of the task here
-    newToDoTask.addEventListener('click', () => detailedTasksView(toDoTasks[i], newToDoTask));
-    newToDoTask.className = 'tasks-divs card-styling click-hover';
-    newToDoTask.innerHTML = toDoTasks[i].title;
-    toDoColumn.appendChild(newToDoTask);
-  }
 
-  // Done
-  for(let i = 0; i < doneTasks.length; i++) { // Could use a forEach method to make this cleaner
-    const doneTask = document.createElement('div');
-    // Add the function for the detailed view/edits/save changes of the task here
-    doneTask.addEventListener('click', () => detailedTasksView(doneTasks[i], doneTask));
-    doneTask.className = 'tasks-divs card-styling click-hover';
-    doneTask.innerHTML = doneTasks[i].title;
-    doneColumn.appendChild(doneTask);
-  }
+  toDoTasks.forEach(task => createTaskCard(task, 'todo-column'));
+  doingTasks.forEach(task => createTaskCard(task, 'doing-column'));
+  doneTasks.forEach(task => createTaskCard(task, 'done-column'));
+}
+createTaskCard dynamically generates task elements.
 
-  // Doing
-  for(let i = 0; i < doingTasks.length; i++) { // Could use a forEach method to make this cleaner
-    const doingTask = document.createElement('div');
-    // Add the function for the detailed view/edits/save changes of the task here 
-    doingTask.addEventListener('click', () => detailedTasksView(doingTasks[i], doingTask));
-    doingTask.className = 'tasks-divs card-styling click-hover';
-    doingTask.innerHTML = doingTasks[i].title;
-    doingColumn.appendChild(doingTask);
-  }
-};
-renderTasks();
-```
+Event listeners enable edit modal and priority styling.
 
-🔄 Editing Tasks
-To edit a task, click on it. This opens a modal form pre-filled with task details. After editing:
+4. Editing & Deletion
+js
+Copy
+Edit
+const newTasks = tasks.filter(t => t.id !== task.id); // deletion
+localStorage.setItem('tasks', JSON.stringify(newTasks));
+Clicking a task opens a modal for editing.
 
-The updated task is saved to local storage.
+Updates reflect instantly in both DOM and localStorage.
 
-The card updates visually with the new title.
+Deletion removes tasks from storage and DOM simultaneously.
 
-The card moves to the correct column based on the new status.
+5. Sidebar & Mobile Sidebar
+Sidebar collapses on mobile using:
 
-## 🛠️ Future Improvements
+js
+Copy
+Edit
+sideBar.classList.toggle('hidden');
+Toggle button remains visible using absolute positioning.
 
-- Add more interactivity with JS
-- Persisting data via the addition of a server/database and a backend JS framework/server-side framework
-- Enable drag and drop functionality
+Layout adjusts automatically with Tailwind’s responsive classes.
+
+6. Theme Toggle (Light/Dark Mode)
+js
+Copy
+Edit
+document.body.classList.toggle('dark-mode');
+Child elements inherit styles based on .dark-mode.
+
+Supports dynamic color changes for cards and priority indicators.
+
+7. Priority & Ordering
+js
+Copy
+Edit
+const priorityOrder = { high: 3, medium: 2, low: 1 };
+tasks.sort((a, b) => priorityOrder[b.priority] - priorityOrder[a.priority]);
+High, medium, and low priorities are sorted numerically.
+
+Tasks are rendered in descending priority order within columns.
+
+8. Drag & Drop Functionality
+Task cards are draggable using mousedown, mousemove, and mouseup.
+
+Moving a card updates its column status and localStorage immediately.
+
+Enables intuitive workflow reordering.
+
+9. Example Task Card HTML Structure
+html
+Copy
+Edit
+<div class="tasks-divs card-styling click-hover">
+  Task Title
+  <div class="priority-indicator bg-red"></div>
+</div>
+🛠️ Future Improvements
+Backend integration for server-side persistence.
+
+Enhanced drag-and-drop with smoother animations.
+
+Notifications or due date alerts.
+
+More advanced filtering and search functionality.
