@@ -4,6 +4,8 @@ A responsive Kanban board built with **HTML**, **Tailwind CSS**, and **JavaScrip
 
 ---
 
+**Project Presentation** [Project presentation](https://drive.google.com/file/d/1ulDD3pHH0RkpHViLe_z7l4FzWmEzM6Na/view?usp=sharing)
+
 🌐 **Live Demo:** [JSL-PP Kanban Board on Netlify](https://markkanbanboardjslpp.netlify.app/) 
 
 ## 📌 Board Structure
