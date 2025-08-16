@@ -19,6 +19,7 @@ function renderTasks () {
     // Add the function for the detailed view/edits/save changes of the task here
     newToDoTask.addEventListener('click', () => detailedTasksView(toDoTasks[i], newToDoTask));
     newToDoTask.className = 'tasks-divs card-styling click-hover';
+    newToDoTask.innerText = toDoTasks[i].title;
     priorityOfTask.className = 'priority-indicator';
     if (toDoTasks[i].priority === 'high') {
       priorityOfTask.classList.add('bg-red-500');
@@ -28,7 +29,6 @@ function renderTasks () {
       priorityOfTask.classList.add('bg-green-500');
     }
     newToDoTask.appendChild(priorityOfTask);
-    newToDoTask.innerText = toDoTasks[i].title;
     toDoColumn.appendChild(newToDoTask);
   }
 
@@ -39,6 +39,7 @@ function renderTasks () {
     // Add the function for the detailed view/edits/save changes of the task here
     doneTask.addEventListener('click', () => detailedTasksView(doneTasks[i], doneTask));
     doneTask.className = 'tasks-divs card-styling click-hover';
+    doneTask.innerHTML = doneTasks[i].title;
     priorityOfTask.className = 'priority-indicator';
     if (doneTasks[i].priority === 'high') {
       priorityOfTask.classList.add('bg-red-500');
@@ -48,7 +49,6 @@ function renderTasks () {
       priorityOfTask.classList.add('bg-green-500');
     }
     doneTask.appendChild(priorityOfTask);
-    doneTask.innerHTML = doneTasks[i].title;
     doneColumn.appendChild(doneTask);
   }
 
